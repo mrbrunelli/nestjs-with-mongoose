@@ -1,10 +1,14 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BeersModule } from './beers/beers.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://beers:beers@localhost:27017/?authMechanism=DEFAULT'),
+    ConfigModule.forRoot({
+      envFilePath: '.development.env',
+    }),
+    MongooseModule.forRoot(process.env.DATABASE_URI),
     BeersModule,
   ],
 })
