@@ -15,4 +15,8 @@ export class BeersRepository {
   async findAll(): Promise<Beers[]> {
     return this.beersModel.find().exec();
   }
+
+  async delete(id: string) {
+    return this.beersModel.deleteOne({ _id: id });
+  }
 }

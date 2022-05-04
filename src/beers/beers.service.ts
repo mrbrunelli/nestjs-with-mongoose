@@ -13,4 +13,8 @@ export class BeersService {
   async findAll() {
     return this.beersRepository.findAll();
   }
+
+  async delete(id: string) {
+    return this.beersRepository.delete(id);
+  }
 }
