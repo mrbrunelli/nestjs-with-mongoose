@@ -3,7 +3,9 @@ import { Document } from 'mongoose';
 
 export type BeersDocument = Beers & Document;
 
-@Schema()
+@Schema({
+  timestamps: true,
+})
 export class Beers {
   @Prop({ type: String, required: true })
   name: string;
